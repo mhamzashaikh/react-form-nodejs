@@ -1,0 +1,112 @@
+body{
+    font-family: sans-serif;
+ 
+}
+
+.form-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+
+input {
+    outline: none;
+    border: 1px solid green;
+    width: 300px;
+    height: 30px;
+    padding: 1px 12px;
+    border-radius: 13px;
+
+}
+
+select {
+
+    color: green;
+    padding: 2px 5px;
+    outline: none;
+    border: 1px solid rgb(4, 4, 4, 0.7);
+    border-radius: 12px;
+}
+
+textarea{
+    outline: none;
+    border-color: green ;
+}
+
+.submitBtn{
+    margin-top: 10px;
+    background-color: green;
+    color: #fff;
+    border: 1px solid green;
+    width: 150px;
+    height: 3te0px;
+    padding: 1px 12px;
+    border-radius: 13px;
+
+
+}
+
+.submitBtn:active{
+    background-color: #fff;
+    color: green;
+}
+
+
+/*----------- Table page ( /list )  design --------*/
+
+h1 {
+    text-align: center;
+}
+
+
+
+.icon-container{
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+}
+.myicon{
+    font-size: 36px;
+    padding: 9px 2px;
+    /* background-color: aqua; */
+    color: rgb(57, 57, 57);
+}
+
+
+
+
+
+table {
+
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin: 3px auto;
+}
+
+table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+
+table th,
+td {
+    padding: 12px 15px;
+}
+
+
+table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+
+
+
+/* --------------------- */
