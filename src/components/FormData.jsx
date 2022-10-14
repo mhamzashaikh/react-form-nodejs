@@ -5,7 +5,8 @@ import "./Form.css";
 function FormData() {
     const [formData, setFormData] = useState([]);
     const [refresh, setRefresh] = useState(1);
-    console.log("data : ", formData)
+    // console.log("data : ", formData);
+
 
 
     useEffect(() => {
@@ -15,29 +16,66 @@ function FormData() {
             .then(res => res.json())
             .then((data) => {
 
-
-                console.log("data from server: ", data);
+                // console.log("data from server: ", data);
                 setFormData(data);
+                showRefreshTime();
 
             });
     }, [refresh]);
 
 
+
+
+
+    const showRefreshTime = () => {
+        const fixdate = new Date();
+        let element = document.getElementById("settingTime");
+        element.innerHTML = "Just now";
+
+        setInterval(() => {
+
+            // Calculate minutes
+            const minute = 1000 * 60;
+            const d = new Date();
+            let mins = Math.round((d.getTime() - fixdate.getTime()) / minute);
+
+            if (mins >= 1 && mins <= 59) {
+                element.innerHTML = mins + " min ago";
+            }
+
+            else if (mins >= 60 && mins <= 1439) {
+                let hours = Math.floor(mins / 60);
+                element.innerHTML = hours + " hour ago";
+
+            }
+
+            else if (mins >= 1440) {
+                let days = Math.floor(mins / 24);
+                element.innerHTML = days + " days ago";
+            }
+            // console.log("min", mins);
+
+        }, 60000);
+
+    }
+
+
+
     return (
         <>
-            <nav class="navbar navbar-expand-lg bg-light">
-                <div class="container">
-                    <Link class="navbar-brand" to="/">Hamza</Link>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg bg-light">
+                <div className="container">
+                    <Link className="navbar-brand" to="/">Hamza</Link>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <Link class="nav-link" aria-current="page" to="/">Home</Link>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link className="nav-link" aria-current="page" to="/">Home</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link class="nav-link active" to="/list">Data List</Link>
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/list">Data List</Link>
                             </li>
                         </ul>
                     </div>
@@ -54,14 +92,19 @@ function FormData() {
                             setTimeout(() => {
                                 myrefreshicon.add("fa-spin");
                                 check = true;
-                                console.log("inside interval refreshing...")
+                                // console.log("inside interval refreshing...")
                             }, 10)
                             setTimeout(() => {
                                 if (check === true) {
                                     myrefreshicon.remove("fa-spin");
                                 }
                             }, 1200);
-                        }}></i></h2>
+
+
+
+                        }}></i>
+                </h2>
+                <p id="refreshText">Last refresh: <span id="settingTime"></span></p>
             </div>
 
 

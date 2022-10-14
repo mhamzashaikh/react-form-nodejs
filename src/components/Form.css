@@ -68,6 +68,8 @@ h1 {
     /* background-color: aquamarine; */
     display: flex;
     justify-content: center;
+    align-items: center;
+    column-gap: 10px;
 }
 .myicon{
     font-size: 36px;
@@ -75,6 +77,13 @@ h1 {
     /* background-color: aqua; */
     color: rgb(57, 57, 57);
 }
+
+p#refreshText{
+    padding: 12px 2px 2px 2px;
+    color: rgba(0,0,0,0.6)
+}
+
+
 
 
 
