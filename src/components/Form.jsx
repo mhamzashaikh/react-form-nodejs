@@ -29,7 +29,7 @@ function Form() {
             phonenum: "",
             position: "",
             messageDetails: "",
-    
+
         });
 
 
@@ -44,9 +44,15 @@ function Form() {
             body: JSON.stringify(text)
         })
 
-            .then((result) => { console.log(result) })
-            .catch((error) => { console.log(error.data) });
-        alert("Submitted successfully");
+            .then((result) => {
+                alert("Submitted successfully");
+                console.log(result)
+            })
+            .catch((error) => {
+                alert("Something went wrong!");
+                console.log(error.data)
+            });
+
 
         // ----------------------
 
